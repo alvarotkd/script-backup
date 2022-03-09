@@ -1,14 +1,22 @@
 from datetime import date
 import shutil
+import os
 
 fecha= date.today()
  
 fecha_backup = str(fecha).replace('-','-')
 
-origen= r''
-destino= r''+'\\'+fecha_backup 
+origen= r'D:\Alvaro\\escritorio\\Escritorio\\python\bckup\script-backup\\asd'
+destino= r'Z:\\' +'\\' + fecha_backup
+archivos = os.listdir(origen)
+if os.path.isdir(destino):
+    fecha_backup = str(fecha)
 
-shutil.copytree (origen,destino)
+for g in archivos:
+        shutil.move(origen + g, destino)
+    
+    
 
+print(" backup realizado")
 
 
